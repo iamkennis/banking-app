@@ -4,8 +4,19 @@ import CreateUser from '../CreateUsername/CreateUser'
 
 import './Login.css'
 
+const useStyles = (theme) => ({
+	loginStyle: {
+		opacity: '100',
+	},
+
+	loginOpacity: {
+		opacity: '0',
+	},
+});
+
 
 export default function Login() {
+	const classes = useStyles();
 	const [userLogin, setUserLogin] = useState({
 		owner: '',
 		movements: [],
@@ -18,7 +29,7 @@ export default function Login() {
 		setUserLogin({
 			...userLogin,
 		})
-		console.log(handleChange)
+		console.log(handleChange);
 }
 
 	const handleBtn = (e) => {
@@ -26,13 +37,15 @@ export default function Login() {
 		accounts.find(acc => (e.target.type === accounts.username));
 		if (Number(e.target.type) === accounts.pin) {
 			return (
-				<h3>
-					`Welcome back, ${accounts.owner.split(' ')[0]}
-					`;
-				</h3>
-             
+				<div  className={accounts ? classes.loginOpacity : classes.loginStyle}>
+					<h3>
+						`Welcome back, ${accounts.owner.split(' ')[0]}
+						`;
+					</h3>
+				</div>
+
 			);
-		
+		 
 		}
 		console.log(handleBtn)
 	}
