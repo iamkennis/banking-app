@@ -4,9 +4,6 @@ import React from 'react'
 
 export default function Movements() {
 
-
-	
-	
     return (
 			<div className='movements'>
 				<div className='movements__row'>

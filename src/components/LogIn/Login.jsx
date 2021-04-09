@@ -73,7 +73,7 @@ export default function Login() {
 					&rarr;
 				</button>
 			</form>
-			<CreateUser />
+		
 		</div>
 	);
 }
