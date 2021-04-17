@@ -8,11 +8,12 @@ export default function Login() {
 	// const classes = useStyles();
 	const [nameUser, setNameUser] = useState('');
 	const [password, setPassword] = useState('');
-    const [showpage, setShowPage] = useState()
-
+	
 	const createUser = (accounts) => {
 		accounts.forEach(account => {
+// Loop through the accounts array to return the elements
 			account.username = account.owner
+// transfer the account.owner to account.username, and change the usename to lowercase, split them, map them to retrun the first letter and join the first letter to form e.g "stw"
 				.toLowerCase()
 				.split(' ')
 				.map((name) => name[0])
@@ -21,11 +22,10 @@ export default function Login() {
 		});
 	}
 	createUser(accounts)
-	
 
 	const handleSubmit = (e) => {
-// To make prevent form from submission
 
+// To prevent the form from submitting
 		e.preventDefault();		
 	}
 	
@@ -35,20 +35,26 @@ export default function Login() {
 	const handleBtn = (e) => {
 		e.preventDefault();
 		let createAccount;
+// declare a variable createAccount and pass the accounts.find has value to return and find the account.username if it equal the nameUser input into the form field.
 		createAccount = accounts.find(
 			(account) => account.username === nameUser);
 		if (createAccount?.pin === Number(password)) {
+// the if statement check for account.pin from the DATA.JS if its equal to the password input into the form field
 			console.log(createAccount);
 			return;
 			
 		 }
-		
 		setNameUser('');
 		setPassword('');
-		setShowPage(false)
+		
+		// <Dashboard/>
 	}
 
+//WHAT I WANT YOU TO HELP ME DO
+	// 1. how i can return the Dashboard components inside handleBtn or any where
+	// and an opacity mast be set to 100 to help show the Dashboard component, the default opacity set in the style was 0
 
+	
 
 
 	return (
@@ -75,7 +81,7 @@ export default function Login() {
 			</form>
 
 
-			<Dashboard/>
+			
 		</div>
 	);
 }
