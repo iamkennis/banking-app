@@ -10,8 +10,7 @@ import LogOut from '../../components/Logout/Logout'
 
 export default function Dashboard() {
     return (
-        <div className="app">
-            
+        <div className='app'>
             <Balance />
             <Movements />
             <Summary/>

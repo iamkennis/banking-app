@@ -1,79 +1,81 @@
 import React,{useState} from 'react'
 import accounts from '../../Data'
-import CreateUser from '../CreateUsername/CreateUser'
-
+import { Route, Redirect } from 'react-router-dom';
+import Dashboard from '../../pages/Dashboard/Dashboard'
 import './Login.css'
 
-const useStyles = (theme) => ({
-	loginStyle: {
-		opacity: '100',
-	},
-
-	loginOpacity: {
-		opacity: '0',
-	},
-});
-
-
 export default function Login() {
-	const classes = useStyles();
-	const [userLogin, setUserLogin] = useState({
-		owner: '',
-		movements: [],
-		interestRate: null,
-		pin: null
-	});
+	// const classes = useStyles();
+	const [nameUser, setNameUser] = useState('');
+	const [password, setPassword] = useState('');
+    const [showpage, setShowPage] = useState()
+
+	const createUser = (accounts) => {
+		accounts.forEach(account => {
+			account.username = account.owner
+				.toLowerCase()
+				.split(' ')
+				.map((name) => name[0])
+				.join('');
+			//   console.log(account.username);
+		});
+	}
+	createUser(accounts)
 	
-	const handleChange = (e) => {
-		 e.preventDefault();
-		setUserLogin({
-			...userLogin,
-		})
-		console.log(handleChange);
-}
 
-	const handleBtn = (e) => {
-		 e.preventDefault();
-		accounts.find(acc => (e.target.type === accounts.username));
-		if (Number(e.target.type) === accounts.pin) {
-			return (
-				<div  className={accounts ? classes.loginOpacity : classes.loginStyle}>
-					<h3>
-						`Welcome back, ${accounts.owner.split(' ')[0]}
-						`;
-					</h3>
-				</div>
+	const handleSubmit = (e) => {
+// To make prevent form from submission
 
-			);
-		 
-		}
-		console.log(handleBtn)
+		e.preventDefault();		
 	}
 	
+	
+
+	
+	const handleBtn = (e) => {
+		e.preventDefault();
+		let createAccount;
+		createAccount = accounts.find(
+			(account) => account.username === nameUser);
+		if (createAccount?.pin === Number(password)) {
+			console.log(createAccount);
+			return;
+			
+		 }
+		
+		setNameUser('');
+		setPassword('');
+		setShowPage(false)
+	}
+
 
 
 
 	return (
-		<div className='web-live'>
-			<form className='login'>
+		<div>
+			<form className='login' onSubmit={handleSubmit}>
 				<input
 					type='text'
 					placeholder='user'
 					className='login__input'
-					onChange={handleChange}
+					onChange={(e) => setNameUser(e.target.value)}
+					value={nameUser}
 				/>
 				<input
 					type='text'
 					placeholder='PIN'
 					maxLength='4'
 					className='login__input'
-					onChange={handleChange}
+					onChange={(e) => setPassword(e.target.value)}
+					value={password}
 				/>
-				<button onClick={handleBtn} className='login__btn'>
+				  <button className='login__btn ' onClick={handleBtn}>
 					&rarr;
 				</button>
 			</form>
-		
+
+
+			<Dashboard/>
 		</div>
 	);
 }

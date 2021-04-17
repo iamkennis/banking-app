@@ -95,8 +95,8 @@ nav {
   gap: 2rem;
 
   /* NOTE This creates the fade in/out anumation */
- 
-  transition: all 1s;
+  /* opacity: 0;
+  transition: all 1s; */
 }
 
 .balance {
@@ -215,15 +215,15 @@ nav {
 }
 
 .operation--transfer {
-  background-image: linear-gradient(to top left, #ff03ea, #ff03b3);
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
 }
 
 .operation--loan {
-  background-image: linear-gradient(to top left, #4b39b3, #755de1);
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
 }
 
 .operation--close {
-  background-image: linear-gradient(to top left, #2ae549, #58ff8a);
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
 }
 
 h2 {
