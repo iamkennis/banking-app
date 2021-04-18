@@ -9,7 +9,8 @@ export default function Login() {
 	// const classes = useStyles();
 	const [nameUser, setNameUser] = useState('');
 	const [password, setPassword] = useState('');
-	const [displayUser, setDisplayUser] = useState(accounts)
+	const [displayUser, setDisplayUser] = useState([])
+	console.log(displayUser)
 	
 const createUser = (accounts) => {
 	accounts.forEach((account) => {
@@ -33,13 +34,16 @@ createUser(accounts);
 			(account) => account.username === nameUser
 		);
 		if (createAccount?.pin === Number(password)) {
+			console.log(createAccount);
 			return <Dashboard />;
+		
 			// the if statement check for account.pin from the DATA.JS if its equal to the password input into the form field
 		}
 		setNameUser('');
 		setPassword('');
 
 		return createAccount;
+			
 	};
 
 
@@ -79,7 +83,9 @@ createUser(accounts);
 					onChange={(e) => setPassword(e.target.value)}
 					value={password}
 				/>
-				<button className='login__btn ' onClick={() => setDisplayUser(...displayUser, handleBtn())}>
+				<button className='login__btn ' onClick={() => {
+					setDisplayUser([...displayUser], handleBtn())
+				}}>
 					&rarr;
 				</button>
 			</form>
