@@ -2,6 +2,14 @@ import React from 'react'
 
 
 export default function Balance() {
+
+const calcDisplayBalance = function (acc) {
+	acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+	 `${acc.balance}€`
+};
+
+
+
     return (
 				<div className='balance'>
 					<div>
