@@ -1,16 +1,12 @@
 import React from 'react'
 import Login from '../../components/LogIn/Login'
-
+import './Home.css'
 
 export default function Home() {
 
 	return (
 		<div>
-			<nav>
-				<p className='welcome'>Log in to get started</p>
-				<img src='logo.png' alt='Logo' className='logo' />
-				<Login />
-			</nav>
+			<Login/>
 		</div>
 	);
 }
