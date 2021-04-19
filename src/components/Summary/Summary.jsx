@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 
 export default function Summary() {
 
-
+const [calSummary, setCalSummary] = useState('')
 
 	const calcSummary = (acc) => {
 		const incomes = acc.movements
