@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-
 export default function Movements() {
-
+	
+const [displayMovement, setDisplayMovement] = useState('')
 
 const displayMovement = (movements, sort = false) => {
 	

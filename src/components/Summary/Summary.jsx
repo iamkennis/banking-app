@@ -2,27 +2,28 @@ import React from 'react'
 
 
 export default function Summary() {
-const calcDisplaySummary = function (acc) {
-	const incomes = acc.movements
-		.filter((mov) => mov > 0)
-		.reduce((acc, mov) => acc + mov, 0);
-	 `${incomes}€`
 
-	const out = acc.movements
-		.filter((mov) => mov < 0)
-		.reduce((acc, mov) => acc + mov, 0);
-	`${Math.abs(out)}€`
 
-	const interest = acc.movements
-		.filter((mov) => mov > 0)
+
+	const calcSummary = (acc) => {
+		const incomes = acc.movements
+			.filter((mov) => mov > 0)
+			.reduce((acc, mov) => acc + mov, 0)
+		return `${incomes}€`
+	}
+	const out = acc.movements.filter((mov) => mov < 0)
+		.reduce((acc, mov) => acc + mov, 0)
+	return `${Math.abs(out)}€`
+
+	const interest = acc.movements.filter((mov) => mov > 0)
 		.map((deposit) => (deposit * acc.interestRate) / 100)
 		.filter((int, i, arr) => {
 			// console.log(arr);
 			return int >= 1;
 		})
-		.reduce((acc, int) => acc + int, 0);
-	 `${interest}€`
-};
+		.reduce((acc, int) => acc + int, 0)
+	return `${interest}€`
+
 
 
 
