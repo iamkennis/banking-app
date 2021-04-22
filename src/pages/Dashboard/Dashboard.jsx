@@ -9,7 +9,7 @@ import LogOut from '../../components/Logout/Logout'
 
 export default function Dashboard(props) {
     return (
-			<div className='app' style={props.style}>
+			<div className='app' style={props.style} >
 				<Balance />
 				<Movements />
 				<Summary />

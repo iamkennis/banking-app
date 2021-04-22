@@ -3,26 +3,26 @@ import React,{useState} from 'react'
 
 export default function Summary() {
 
-const [calSummary, setCalSummary] = useState('')
+// const [calSummary, setCalSummary] = useState('')
 
-	const calcSummary = (acc) => {
-		const incomes = acc.movements
-			.filter((mov) => mov > 0)
-			.reduce((acc, mov) => acc + mov, 0)
-		return `${incomes}€`
-	}
-	const out = acc.movements.filter((mov) => mov < 0)
-		.reduce((acc, mov) => acc + mov, 0)
-	return `${Math.abs(out)}€`
+// 	const calcSummary = (acc) => {
+// 		const incomes = acc.movements
+// 			.filter((mov) => mov > 0)
+// 			.reduce((acc, mov) => acc + mov, 0)
+// 		return `${incomes}€`
+// 	}
+// 	const out = acc.movements.filter((mov) => mov < 0)
+// 		.reduce((acc, mov) => acc + mov, 0)
+// 	return `${Math.abs(out)}€`
 
-	const interest = acc.movements.filter((mov) => mov > 0)
-		.map((deposit) => (deposit * acc.interestRate) / 100)
-		.filter((int, i, arr) => {
-			// console.log(arr);
-			return int >= 1;
-		})
-		.reduce((acc, int) => acc + int, 0)
-	return `${interest}€`
+// 	const interest = acc.movements.filter((mov) => mov > 0)
+// 		.map((deposit) => (deposit * acc.interestRate) / 100)
+// 		.filter((int, i, arr) => {
+// 			// console.log(arr);
+// 			return int >= 1;
+// 		})
+// 		.reduce((acc, int) => acc + int, 0)
+// 	return `${interest}€`
 
 
 
