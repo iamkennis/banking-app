@@ -52,7 +52,7 @@ createUser(accounts);
 		if (createAccount?.pin === Number(password)) {
 			console.log(createAccount);
 			setListStyle(true);
-			setWelcomeText(<h1>Welcome Back,{accounts.username}</h1>)
+			setWelcomeText(<h1>Welcome Back,{createAccount.owner.split(' ')[0]}</h1>)
 			// the if statement check for account.pin from the DATA.JS ,
 			// if its equal to the password input into the form field
 		}
