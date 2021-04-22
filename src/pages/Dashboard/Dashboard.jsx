@@ -7,9 +7,9 @@ import Loan from '../../components/Loan/Loan'
 import CloseAccount from '../../components/CloseAcc/CloseAcc'
 import LogOut from '../../components/Logout/Logout'
 
-export default function Dashboard(props) {
+export default function Dashboard({style}) {
     return (
-			<div className='app' style={props.style} >
+			<div className='app' style={style}>
 				<Balance />
 				<Movements />
 				<Summary />
