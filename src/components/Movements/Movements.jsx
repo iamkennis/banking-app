@@ -12,21 +12,21 @@ export default function AccountMovements() {
 // const userBalanceDetails = accounts.find(account =>(account.username === createAccount.username))
 // console.log(userBalanceDetails)
 
-	// const incomes = accountHistories
-	// 	.filter((mov) => mov > 0)
-	// 	.reduce((acc, mov) => acc + mov, 0);
+	const incomes = accountHistories
+		.filter((mov) => mov > 0)
+		.reduce((acc, mov) => acc + mov, 0);
 
-	// const outcomes = accountHistories
-	// 	.filter((mov) => mov < 0)
-	// 	.reduce((acc, mov) => acc + mov, 0);
+	const outcomes = accountHistories
+		.filter((mov) => mov < 0)
+		.reduce((acc, mov) => acc + mov, 0);
 
-	// const interest = accountHistories
-	// 	.filter((mov) => mov > 0)
-	// 	.map((deposit) => (deposit * interestRate) / 100)
-	// 	.filter((int, i, arr) => {
-	// 		return int >= 1;
-	// 	})
-	// 	.reduce((acc, int) => acc + int, 0);
+	const interest = accountHistories
+		.filter((mov) => mov > 0)
+		.map((deposit) => (deposit * interestRate) / 100)
+		.filter((int, i, arr) => {
+			return int >= 1;
+		})
+		.reduce((acc, int) => acc + int, 0);
 
 	const accountBalance = accountHistories.reduce((acc, mov) => acc + mov, 0);
 
@@ -75,7 +75,7 @@ export default function AccountMovements() {
 						);
 					})}
 			</div>
-			{/* <div className='summary'>
+			<div className='summary'>
 				<p className='summary__label'>In</p>
 				<p className='summary__value summary__value--in'>{incomes}€</p>
 				<p className='summary__label'>Out</p>
@@ -85,7 +85,7 @@ export default function AccountMovements() {
 				<p className='summary__label'>Interest</p>
 				<p className='summary__value summary__value--interest'>{interest}€</p>
 				<button className='btn--sort'>&downarrow; SORT</button>
-			</div> */}
+			</div>
 		</div>
 	);
 }
