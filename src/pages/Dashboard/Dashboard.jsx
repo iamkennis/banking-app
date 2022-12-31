@@ -1,22 +1,23 @@
 import React from 'react'
-import Balance from '../../components/Balance/Balance'
-import Movements from '../../components/Movements/Movements'
-import Summary from '../../components/Summary/Summary'
+import Accountmovements from '../../components/Movements/Movements'
 import Transfer from '../../components/Transfer/Transfer'
 import Loan from '../../components/Loan/Loan'
 import CloseAccount from '../../components/CloseAcc/CloseAcc'
-import LogOut from '../../components/Logout/Logout'
 
-export default function Dashboard({style}) {
-    return (
-			<div className='app' style={style}>
-				<Balance />
-				<Movements />
-				<Summary />
-				<Transfer />
-				<Loan />
-				<CloseAccount />
-				<LogOut />
-			</div>
-		);
+
+export default function Dashboard({createAccount}) {
+	
+	
+	return (
+		<div className='app'>
+			<Accountmovements createAccount={createAccount} />
+			<Transfer />
+			<Loan/>
+			<CloseAccount />
+		</div>
+	);
 }
+
+
+
+	
