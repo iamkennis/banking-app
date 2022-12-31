@@ -1,0 +1,41 @@
+{
+    "accounts" : [
+			{
+				"id": 1,
+				"username": "ak",
+				"accountHolder": "Amodu Kehinde",
+				"accountHistories": [
+					200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300
+				],
+				"interestRate": 1.2,
+				"pin": 1111
+			},
+
+			{
+				"id": 2,
+				"username": "aa",
+				"accountHolder": "Aderanti Adeola",
+				"accountHistories": [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+				"interestRate": 1.5,
+				"pin": 2222
+			},
+
+			{
+				"id": 3,
+				"username": "ay",
+				"accountHolder": "Amodu Ayomide",
+				"accountHistories": [200, -200, 340, -300, -20, 50, 400, -460],
+				"interestRate": 0.7,
+				"pin": 3333
+			},
+
+			{
+				"id": 4,
+				"username": "ps",
+				"accountHolder": "Peter Segun",
+				"accountHistories": [430, 1000, 700, 50, 90],
+				"interestRate": 1,
+				"pin": 4444
+			}
+		]
+}

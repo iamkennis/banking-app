@@ -1,7 +1,7 @@
-const accounts = [
+const accountData = [
 	{
-		
-		// username: 'jo',
+		id: 1,
+		username: 'js',
 		owner: 'Jonas Schmedtmann',
 		movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
 		interestRate: 1.2, // %
@@ -9,8 +9,8 @@ const accounts = [
 	},
 
 	{
-		
-		// username: 'jd',
+		id: 2,
+		username: 'jd',
 		owner: 'Jessica Davis',
 		movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
 		interestRate: 1.5,
@@ -18,8 +18,8 @@ const accounts = [
 	},
 
 	{
-		
-		// username: 'stw',
+		id: 3,
+		username: 'stw',
 		owner: 'Steven Thomas Williams',
 		movements: [200, -200, 340, -300, -20, 50, 400, -460],
 		interestRate: 0.7,
@@ -27,8 +27,8 @@ const accounts = [
 	},
 
 	{
-		
-		// username: 'ssm',
+		id: 4,
+		username: 'ssm',
 		owner: 'Sarah Smith',
 		movements: [430, 1000, 700, 50, 90],
 		interestRate: 1,
@@ -37,4 +37,4 @@ const accounts = [
 ];
     
     
-export default accounts
+export default accountData

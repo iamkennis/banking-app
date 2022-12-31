@@ -1,43 +1,48 @@
+
 nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
 }
 
 .welcome {
   font-size: 1.9rem;
-  font-weight: 500;
+  font-weight: 800;
+  text-align: center;
+  padding: 6rem 2rem;
 }
 
 .logo {
-  height: 5rem;
+  height: 10rem;
+  font-size: 16px;
+  font-weight: 800;
 }
 
-
 .login {
-  display: flex;
-  margin-top: -7rem;
+  height: 50rem;
+  width: 40rem;
+  margin: 10rem 60rem;
+  border-radius: 1rem;
+  box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }
 
 .login__input {
-  border: none;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1.6rem;
   font-family: inherit;
-  text-align: center;
-  width: 12rem;
-  border-radius: 10rem;
-  margin-right: 1rem;
-  color: inherit;
-  border: 1px solid #fff;
+  width: 30rem;
+  border-radius: 0 5px;
+  display: block;
+  margin: 0 4rem 4rem;
+  border: 2px solid #b4b1b1;
   transition: all 0.3s;
 }
 
 .login__input:focus {
   outline: none;
-  border: 1px solid #ccc;
+  color: orange;
+  border: 2px solid orange;
 }
 
 .login__input::placeholder {
@@ -45,18 +50,15 @@ nav {
 }
 
 .login__btn {
-  border: none;
-  background: none;
-  font-size: 2.2rem;
-  color: inherit;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  color: #ffffff;
+  border: 2px solid orange;
+  width: 30rem;
+  margin: 2rem 4rem 2rem;
+  background: orange;
+  font-size: 1.6rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.3s;
-}
-
-.login__btn:hover,
-.login__btn:focus,
-.btn--sort:hover,
-.btn--sort:focus {
-  outline: none;
-  color: #777;
 }

@@ -1,99 +1,59 @@
 import React,{useState} from 'react'
-import accounts from '../../Data'
-import Dashboard from '../../pages/Dashboard/Dashboard'
+import accountData from "../../Data"
+import {useNavigate} from "react-router-dom"
 import './Login.css'
 
+
 export default function Login() {
-	const [nameUser, setNameUser] = useState('');
+	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
-	const [listStyle, setListStyle] = useState(false);
-	const [welcomeText, setWelcomeText] = useState('');
+	const [accounts] = useState(accountData)
+    const navigate = useNavigate()
+
+	
+ const createAccount = accounts ? accounts.find(
+		(account) => account.username === userName): null
 	
 
-	// The handleSubmit prevent default submit form
-
-	const handleSubmit = (e) => {
+	function handleBtn(e) {
 		e.preventDefault();
-	};
 
-	// These handle the event to changing input to target the value
-
-	const handleNameChange = (e) => {
-		setNameUser(e.target.value);
-	};
-
-	const handleEmailChange = (e) => {
-		setPassword(e.target.value);
-	};
-
-	const createUser = (accounts) => {
-		accounts.forEach((account) => {
-			// Loop through the accounts array to return the elements
-			account.username = account.owner
-				// transfer the account.owner to account.username, and change the usename to lowercase,
-				// split them, map them to retrun the first letter and join the first letter to form e.g "stw"
-				.toLowerCase()
-				.split(' ')
-				.map((name) => name[0])
-				.join('');
-			//   console.log(account.username);
-		});
-	};
-	createUser(accounts);
-
-	const handleBtn = (createAccount) => {
-		
-		// declare a variable createAccount and pass the accounts.find has value to return and
-		//find the account.username if it equal the nameUser input into the form field.
-		createAccount = accounts.find((account) => account.username === nameUser);
 		if (createAccount?.pin === Number(password)) {
-			console.log(createAccount);
-			setListStyle(true);
-			setWelcomeText(<h1>Welcome Back,{createAccount.owner.split(' ')[0]}</h1>);
-
-			// the if statement check for account.pin from the DATA.JS ,
-			// if its equal to the password input into the form field
+			console.log(createAccount.username)
+		    return navigate('/dashboard')
+			
+		}else{
+			alert("Incorrect username or password")
 		}
-		setNameUser('');
-		setPassword('');
-	};
-
-	// The getStyle variable returns the opacity,if the liststyle is true
-	const getStyle = () => {
-		return {
-			opacity: listStyle ? 100 : 0,
-		};
+		
 	};
 
 
 	return (
-		<div>
-			<nav>
-				<p className='welcome'>Log in to get started</p>
-				<img src='logo.png' alt='Logo' className='logo' />
-				{welcomeText}
-			</nav>
-			<form className='login' onSubmit={handleSubmit}>
-				<input
-					type='text'
-					placeholder='user'
-					className='login__input'
-					onChange={handleNameChange}
-					value={nameUser}
-				/>
-				<input
-					type='text'
-					placeholder='PIN'
-					maxLength='4'
-					className='login__input'
-					onChange={handleEmailChange}
-					value={password}
-				/>
-				<button className='login__btn ' onClick={handleBtn}>
-					&rarr;
-				</button>
-			</form>
-			<Dashboard style={getStyle()} />
-		</div>
+<div>
+	<nav className='overlay'>
+      <img src="logo.svg" alt="All Banking" className="logo" />
+      <form className="login">
+      <p className="welcome">Log in to get started</p>
+        <input
+          type="text"
+          placeholder="Username"
+          className="login__input login__input--user"
+		  value={userName}
+		  onChange={(e) => setUserName(e.target.value)}
+		  required
+        />
+        <input
+          type="text"
+          placeholder="Password"
+		  required
+		onChange={(e) => setPassword(e.target.value)}
+		value={password}
+          className="login__input login__input--pin"
+        />
+        <button className="login__btn" onClick={handleBtn}>Login</button>
+      </form>
+    </nav>	
+</div>
 	);
 }

@@ -20,12 +20,9 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #444;
   background-color: #f3f3f3;
-  height: 100vh;
+  height: 100%;
   padding: 2rem;
 }
-
-
-
 /* MAIN */
 .app {
   position: relative;
@@ -34,11 +31,11 @@ body {
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto repeat(3, 15rem) auto;
-  gap: 2rem;
+  gap: 10rem;
 
   /* NOTE This creates the fade in/out anumation */
- opacity: 0;
- transition: all 1s;
+  /* opacity: 0;
+  transition: all 1s; */
 }
 
 .balance {
