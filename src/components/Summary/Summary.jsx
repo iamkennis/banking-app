@@ -22,11 +22,6 @@ export default function Summary() {
 		})
 		.reduce((acc, int) => acc + int, 0)
 	
-
-
-
-
-
     return (
 			<div className='summary'>
 				<p className='summary__label'>In</p>

@@ -3,7 +3,6 @@ import accountData from "../../Data"
 import {useNavigate} from "react-router-dom"
 import './Login.css'
 
-
 export default function Login() {
 	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
@@ -27,9 +26,7 @@ export default function Login() {
 		}
 		
 	};
-
-
-	return (
+return (
 <div>
 	<nav className='overlay'>
       <img src="logo.svg" alt="All Banking" className="logo" />
