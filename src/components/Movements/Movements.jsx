@@ -1,8 +1,6 @@
 import React,{useEffect} from 'react'
 import accountData from "../../Data"
-import { useState} from 'react';
-// import DataContext from '../../context/dataContext';
-
+import { useState} from 'react'
 
 export default function AccountMovements() {
 	const [sorted] = useState(true);
