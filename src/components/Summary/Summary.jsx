@@ -31,6 +31,8 @@ export default function Summary() {
 				<p className='summary__label'>Interest</p>
 			<p className='summary__value summary__value--interest'>{interest}€</p>
 				<button className='btn--sort'>&downarrow; SORT</button>
+				<button className='btn--sort'>&downarrow; SORT</button>
+				<button className='btn--sort'>&downarrow; SORT</button>
 			</div>
 		);
 }
