@@ -1,14 +1,17 @@
-import React,{useEffect} from 'react'
-import accountData from "../../Data"
-import { useState} from 'react'
+import React, { useEffect } from 'react';
+import accountData from '../../Data';
+import { useState } from 'react';
 
-export default function AccountMovements() {
+export default function AccountMovements(id) {
 	const [sorted] = useState(true);
-	const [accounts] = useState(accountData)
-	const [accountHistories, setAccountHistories] = useState([200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300]);
-	
-// const userBalanceDetails = accounts.find(account =>(account.username === createAccount.username))
-// console.log(userBalanceDetails)
+	const [accounts] = useState(accountData);
+	const [accountHistories, setAccountHistories] = useState([
+		200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300,
+	]);
+	const interestRate = [];
+	const accountH = accounts.find((account) => account.id === id);
+	console.log(accountH);
+	// console.log(accounts);
 
 	const incomes = accountHistories
 		.filter((mov) => mov > 0)
@@ -45,7 +48,7 @@ export default function AccountMovements() {
 			</div>
 			<div className='movements'>
 				{accountHistories &&
-					accountHistories.map((accountHistories, index) => {
+					accountHistories?.map((accountHistories, index) => {
 						return (
 							<div key={index}>
 								{accountHistories > 0 ? (
@@ -54,9 +57,7 @@ export default function AccountMovements() {
 											{index + 1} deposit
 										</div>
 										<div className='movements__date'>24/01/2037</div>
-										<div className='movements__value'>
-											${accountHistories}
-										</div>
+										<div className='movements__value'>${accountHistories}</div>
 									</div>
 								) : (
 									<div className='movements__row'>
@@ -64,9 +65,7 @@ export default function AccountMovements() {
 											{index + 1} withdrawal
 										</div>
 										<div className='movements__date'>24/01/2037</div>
-										<div className='movements__value'>
-											${accountHistories}
-										</div>
+										<div className='movements__value'>${accountHistories}</div>
 									</div>
 								)}
 							</div>
@@ -87,4 +86,3 @@ export default function AccountMovements() {
 		</div>
 	);
 }
-
