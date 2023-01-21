@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import accountData from '../../Data';
 import { useNavigate } from 'react-router-dom';
-import { accountCreate } from '../../action/useAccout';
-import './Login.css';
-import { useEffect } from 'react';
 
-let username;
+import './Login.css';
 
 export default function Login() {
 	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
+	// const [userDetails, setUserDetails] = useState([]);
 	const navigate = useNavigate();
 
 	const createAccount = accountData
@@ -20,12 +18,14 @@ export default function Login() {
 		e.preventDefault();
 
 		if (createAccount?.pin === Number(password)) {
-			console.log(createAccount.username);
+			// setUserDetails(createAccount);
+			localStorage.setItem('userDetails', JSON.stringify(createAccount));
 			return navigate('/dashboard');
 		} else {
 			alert('Incorrect username or password');
 		}
 	}
+
 	return (
 		<div>
 			<nav className='overlay'>
@@ -62,3 +62,7 @@ export default function Login() {
 		</div>
 	);
 }
+
+// export const UserDetailsContext = createContext(
+// 	,
+// );

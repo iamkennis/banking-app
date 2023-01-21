@@ -1,27 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import accountData from '../../Data';
 import { useState } from 'react';
+import { UserDetailsContext } from '../LogIn/Login';
 
-export default function AccountMovements(id) {
+export default function AccountMovements() {
+	// const userDetails = useContext(UserDetailsContext);
+	// console.log(userDetails);
 	const [sorted] = useState(true);
-	const [accounts] = useState(accountData);
-	const [accountHistories, setAccountHistories] = useState([
-		200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300,
-	]);
+	const [accountHistories, setAccountHistories] = useState(
+		JSON.parse(localStorage.getItem('userDetails')),
+	);
 	const interestRate = [];
-	const accountH = accounts.find((account) => account.id === id);
-	console.log(accountH);
+	// const accountH = accounts.find((account) => account.id === id);
+	// console.log(accountHistories?.movements);
 	// console.log(accounts);
 
-	const incomes = accountHistories
+	const incomes = accountHistories?.movements
 		.filter((mov) => mov > 0)
 		.reduce((acc, mov) => acc + mov, 0);
 
-	const outcomes = accountHistories
+	const outcomes = accountHistories?.movements
 		.filter((mov) => mov < 0)
 		.reduce((acc, mov) => acc + mov, 0);
 
-	const interest = accountHistories
+	const interest = accountHistories?.movements
 		.filter((mov) => mov > 0)
 		.map((deposit) => (deposit * interestRate) / 100)
 		.filter((int, i, arr) => {
@@ -29,7 +31,10 @@ export default function AccountMovements(id) {
 		})
 		.reduce((acc, int) => acc + int, 0);
 
-	const accountBalance = accountHistories.reduce((acc, mov) => acc + mov, 0);
+	const accountBalance = accountHistories?.movements.reduce(
+		(acc, mov) => acc + mov,
+		0,
+	);
 
 	// const sortedAccounts = sorted
 	// 	? movements.slice().sort((a, b) => a - b)
@@ -47,8 +52,8 @@ export default function AccountMovements(id) {
 				<p className='balance__value'>{accountBalance}€</p>
 			</div>
 			<div className='movements'>
-				{accountHistories &&
-					accountHistories?.map((accountHistories, index) => {
+				{accountHistories?.movements &&
+					accountHistories?.movements?.map((accountHistories, index) => {
 						return (
 							<div key={index}>
 								{accountHistories > 0 ? (

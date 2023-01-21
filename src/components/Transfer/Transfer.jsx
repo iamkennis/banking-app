@@ -4,6 +4,9 @@ import accounts from '../../Data';
 export default function Transfer() {
 	const [username, setUsername] = useState('');
 	const [inputAmount, setInputAmount] = useState('');
+	const [userDetails] = useState(
+		JSON.parse(localStorage.getItem('userDetails')),
+	);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -18,16 +21,16 @@ export default function Transfer() {
 		const receiverAccount = accounts.find(
 			(account) => account.username === username,
 		);
-		setUsername('');
-		setInputAmount('');
+		// setUsername('');
+		// setInputAmount('');
 
 		if (
 			amountInput > 0 &&
 			receiverAccount &&
-			accounts.balance >= amountInput &&
-			receiverAccount?.username !== accounts.username
+			userDetails.balance >= amountInput &&
+			receiverAccount?.username !== userDetails.username
 		) {
-			accounts.movement.push(amountInput);
+			userDetails.movement.push(amountInput);
 		}
 		console.log(receiverAccount);
 	}
