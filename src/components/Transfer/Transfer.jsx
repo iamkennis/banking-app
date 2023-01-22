@@ -7,6 +7,7 @@ export default function Transfer() {
 	const [userDetails] = useState(
 		JSON.parse(localStorage.getItem('userDetails')),
 	);
+	// console.log(userDetails);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -30,9 +31,10 @@ export default function Transfer() {
 			userDetails.balance >= amountInput &&
 			receiverAccount?.username !== userDetails.username
 		) {
-			userDetails.movement.push(amountInput);
+			userDetails.movements.push(-amountInput);
+			receiverAccount.movements.push(amountInput);
 		}
-		console.log(receiverAccount);
+		// console.log(receiverAccount, amountInput);
 	}
 
 	return (
